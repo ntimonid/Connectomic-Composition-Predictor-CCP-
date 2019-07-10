@@ -24,21 +24,19 @@ One big advantage of the CCP tool is that it provides a user with the capability
 
 We have provided three independent use cases that indicate ways in which the CCP tool can be utilized for assisting different types of researchers throughout their analysis.
 
-Use case #1: Laminar-resolved Connectomics  shows the ways in which the CCP tool can assist computational neuroscientists.
+Use case #1: Laminar-resolved Connectomics (see UseCase1.ipynb for source code) shows the ways in which the CCP tool can assist computational neuroscientists.
 
-Use case #2: Predictive Transcriptomics shows how the CCP tool can assist translational neuroscientists. 
+Use case #2: Predictive Transcriptomics (see UseCase2.ipynb for source code) shows how the CCP tool can assist translational neuroscientists. 
 
-Use case #3 Brain Visualization shows ways according  to which the CCP tool can assist a broader range of people such as high school students, working on projects regarding brain visualization.
+Use case #3 Brain Visualization (see UseCase3.ipynb for source code) shows ways according  to which the CCP tool can assist a broader range of people such as high school students, working on projects regarding brain visualization.
 
-The CCP Pipeline serves as an archive of all the analytic steps that have been followed in order to develop, test and inspect our neuroinformatics based predictive pipeline.
+The CCP Pipeline (see CCP_Pipeline.ipynb for source code) serves as an archive of all the analytic steps that have been followed in order to develop, test and inspect our neuroinformatics based predictive pipeline.
 
 Documentation regarding description of the pipeline, analysis and interpretation of the results is ongoing.
 
 The Allen_API_Library is a collection of functions that we have used to download and parse the aforementioned data modalities from the Allen Institute. Due to run-time constraints of our demo, all data that were downloaded using this library and were stored in the collab storage in either .hdf5 or .pkl format.  Throughout the CCP pipeline and all use cases the data were loaded from the storage. Therefore this Library serves as a documentation of how all used data modalities were originally collected and parsed and can be adjusted to the user's needs.
 
 Regarding the execution of jupyter notebook scripts it is important to make a distinction between cells that are on Code or RawNBConvert form. Code implies that the code inside cell is executable while in the second case is just readable. The reason why we have formatted a number of cells as RawNBConvert is because of their corresponding code is quite demanding in terms of execution time and therefore we keep the cell in readable form in order to show the user how the code flows, while the cell below that one serves as a short-circuit solution where the results are being loaded from pickle files where they had been stored rather than re-run. 
-
-Last but not least, the collaboratory is in public mode which means that all notebooks can be displayed to the user but are not directly executable. For a notebook to be executable, the user has to clone it in a personal collaboratory using the clone button at the top right of the screen.
 
 References
 
