@@ -1,9 +1,15 @@
+from __future__ import division
 from __future__ import unicode_literals
 from IPython.core.display import display, HTML
+from json import dumps as json_encode
+from base64 import b64encode
 from IPython.display import display, Javascript, clear_output
 from IPython.core.debugger import set_trace
 from subprocess import call
 import os
+
+
+# the base64 library produces clean output without newlines
 
 call(['pip', 'install', 'allensdk'])
 clear_output()
@@ -11,7 +17,6 @@ call(['pip', 'install', 'joblib'])
 clear_output()
 call(['pip', 'install', '--upgrade','hbp-service-client==1.0.0']) #!pip install --upgrade "hbp-service-client==1.0.0"
 clear_output()
-#!conda install -y -c r rpy2
 #!conda install -c r r-base -y
 call(['pip', 'install', '--upgrade','sklearn']) #!pip install --upgrade sklearn
 clear_output()
@@ -25,10 +30,37 @@ os.chdir('..')
 clear_output()
 call(['pip', 'install', 'pandas==0.19.2'])
 clear_output()
-
+call(['pip', 'install', 'nilearn'])
+clear_output()
+call(['pip', 'install', 'wget'])
+clear_output()
 import sys
+if 'rpy2' not in sys.modules:
+    try:
+        import rpy2
+	if rpy2.__version__!='2.8.6':
+	   call(['pip', 'install', 'rpy2=2.8.6'])
+	   import rpy2
+    except:
+        call(['pip', 'install', 'rpy2=2.8.6'])
+        import rpy2
+else:
+	import rpy2
+	if rpy2.__version__!='2.8.6':
+	   call(['pip', 'install', 'rpy2=2.8.6'])
+	   import rpy2
+
+if 'numpy' not in sys.modules: 
+    call(['pip', 'install', 'numpy=1.11.2'])       
+    import numpy as np
+else:
+    import numpy as np
+    if np.__version__ != '1.11.2':
+	call(['pip', 'install', 'numpy=1.11.2'])       
+	import numpy as np
+
+import copy
 import matplotlib
-import numpy as np
 import scipy as sci
 import csv
 import pickle as pk
@@ -53,8 +85,9 @@ import sklearn.linear_model as lm
 import sklearn.metrics as metrics
 import zipfile
 import nrrd
-#import rpy2.robjects as ro
-#import rpy2
+
+import rpy2.robjects as ro
+from rpy2.robjects import numpy2ri,pandas2ri
 import nibabel as nib
 import base64
 import skimage as ski
@@ -64,7 +97,8 @@ import xlrd as xlrd
 import xlrd
 import string
 import urllib
-import cortical_map_10 as cm
+import nilearn
+import wget, gzip
 
 
 from sklearn.decomposition import DictionaryLearning
@@ -93,8 +127,6 @@ from scipy.ndimage.filters import laplace
 from allensdk.core.mouse_connectivity_cache import MouseConnectivityCache
 from allensdk.api.queries.grid_data_api import GridDataApi
 from allensdk.api.queries.ontologies_api import OntologiesApi
-from json import dumps as json_encode
-from base64 import b64encode
 from mcmodels.models.voxel import RegionalizedModel
 from subprocess import call
 from itertools import chain
@@ -111,7 +143,10 @@ from urllib import urlretrieve
 from sklearn.preprocessing import Imputer, normalize
 from scipy.special import expit
 from mcmodels.core import VoxelModelCache
+from nilearn.image import load_img,resample_to_img
+from sklearn.metrics import mean_squared_error,r2_score
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
+import cortical_map_10 as cm
 from NotebookSearch import *

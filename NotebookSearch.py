@@ -58,7 +58,7 @@ class NotebookLoader(object):
                 # transform the input to executable Python
                 code = self.shell.input_transformer_manager.transform_cell(cell.source)
                 # run the code in themodule
-                exec(code, mod.__dict__)
+                exec(code, mod.__dict__,)
         finally:
             self.shell.user_ns = save_user_ns
         return mod
@@ -77,11 +77,9 @@ class NotebookFinder(object):
         if path:
             # lists aren't hashable
             key = os.path.sep.join(path)
-
         if key not in self.loaders:
             self.loaders[key] = NotebookLoader(path)
         return self.loaders[key]
 
-print os.getcwd()
 os.chdir('../25 3 2019/')
 sys.meta_path.append(NotebookFinder())
