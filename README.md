@@ -1,4 +1,4 @@
-                                         Connectomic Composition Predictor       
+                                         Connectomic Composition Predictor (CCP)      
 
 BioRxiv Link:  https://www.biorxiv.org/content/10.1101/736520v1
 
