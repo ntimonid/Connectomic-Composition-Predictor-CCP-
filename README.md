@@ -1,4 +1,4 @@
-                                         Connectomic Composition Predictor (CCP)      
+                                         Connectomic Composition Predictor       
 
 BioRxiv Link:  https://www.biorxiv.org/content/10.1101/736520v1
 
@@ -6,21 +6,21 @@ The goal of this tool is to facilitate the integration of high-throughput brain 
 
 For the aforementioned purpose, two brain atlas related data modalities were utilized: 
 
-    In situ hybridization (ISH) based gene expression dataset containing the expression energy of 3318 genes for ~1030 spatially distinct mouse brain areas [1].
-    Anatomical tracing based structural connectivity dataset containing the connectivity strength of projections to ~1030 spatially distinct mouse brain areas. The source locations of projections are derived from a series of multiple tracing experiments that either belong to cre-line categories (transgenic mice) or wild-type (non-transgenic). Currently, the total number of source-injection locations are ~1300 [2], [4].
+   1. In situ hybridization (ISH) based gene expression dataset containing the expression energy of 3318 genes for ~1030 spatially distinct mouse brain areas [1].
+   2. Anatomical tracing based structural connectivity dataset containing the connectivity strength of projections to ~1030 spatially distinct mouse brain areas. The source locations of projections are derived from a series of multiple tracing experiments that either belong to cre-line categories (transgenic mice) or wild-type (non-transgenic). Currently, the total number of source-injection locations are ~1300 [2], [3].
 
 Both data modalities were acquired from the Allen Institute for Brain Science. Documentation can be found at: brain-map
 
-Another Allen Institute based useful resource is the mouse connectivity models toolbox that we have utilized throughout our pipeline and as part of the CCP tool [3]. 
+Another Allen Institute based useful resource is the mouse connectivity models toolbox that we have utilized throughout our pipeline and as part of the CCP tool [4]. 
 
 Documentation can be found here: mouse_connectivity_models
 
-The supervised machine learning algorithms used to train our models are: Penalized (L2 ridge) linear regression and Random forest regressors.
+The supervised machine learning algorithms used to train our models are: Penalized (L2 ridge) linear regression and Random forest regressors. Our approach has been inspired by the work in [5].
 
 The CCP tool corresponds to two main classes and a series of independent functions. The two main classes are:
 
     MesoconnectomePredictor: provides preprocessing, storage, analysis and predictive routines for the aforementioned data modalities.
-    BrainPlotter: provides multiple forms of  visualization for brain related data at different stages of the analysis [5].
+    BrainPlotter: provides multiple forms of  visualization for brain related data at different stages of the analysis [6].
 
 Descriptions and implementations of the aforementioned modules can be found at: PrimaryLibrary, Allen_API_Library, MorphologyLibrary
 
@@ -34,11 +34,11 @@ Use case #2: Predictive Transcriptomics shows how the CCP tool can assist transl
 
 Use case #3 Brain Visualization shows ways according  to which the CCP tool can assist a broader range of people such as high school students, working on projects regarding brain visualization.
 
-Use case #4: Dictionary-based connectivity predictions shows ways with which the CCP tool can learn and predict regionalized projection volume data using gene expression data, as demonstrated in the CCP Pipeline, while reducing their redundancy and dimensionality using novel decomposition strategies such as the Dictionary learning and Sparse coding technique [6]. The reduction allows for finding the minimum number of basis vectors that can be represented by sparse linear combinations of genes and can be capable of predicting the projection patterns while having a satisfactory ratio of explained variance.
+Use case #4: Dictionary-based connectivity predictions shows ways with which the CCP tool can learn and predict regionalized projection volume data using gene expression data, as demonstrated in the CCP Pipeline, while reducing their redundancy and dimensionality using novel decomposition strategies such as the Dictionary learning and Sparse coding technique [7]. The reduction allows for finding the minimum number of basis vectors that can be represented by sparse linear combinations of genes and can be capable of predicting the projection patterns while having a satisfactory ratio of explained variance.
 
 Use case #5: Volumetric predictions is an extension of the CCP tool that moves beyond predicting unionized data and predicts the mesoscale connectivity data using gene expression at a volumetric level of resolution, where both data modalities are embedded in a 3D space that is defined by the Allen Institute Common-Coordinate-Framework (CCF v3.0). More information about this type of analysis will be soon available at our next bioRxiv article.
 
-Use case #6: Integrating morphology reconstructions  is an additional extension of the CCP tool wherein long-range morphologies from reconstructed cortical neurons, obtained from the Mouselight Project of Janelia Research Campus [7] have been used to predict the Allen wild-type tract-tracing data. More information about this type of analysis will be soon available at a future planned bioRxiv article.
+Use case #6: Integrating morphology reconstructions  is an additional extension of the CCP tool wherein long-range morphologies from reconstructed cortical neurons, obtained from the Mouselight Project of Janelia Research Campus [8] have been used to predict the Allen wild-type tract-tracing data. More information about this type of analysis will be soon available at a future planned bioRxiv article.
 
 The CCP Pipeline serves as an archive of all the analytic steps that have been followed in order to develop, test and inspect our neuroinformatics based predictive pipeline.
 
@@ -56,16 +56,18 @@ References
 
 [2] S.W. Oh, J.A. Harris, L. Ng et al. A mesoscale connectome of the mouse brain. Nature, 508:207-213, 2014.
 
-[3] J.E. Knox et al. High-resolution data-driven model of the mouse connectome. Network Neuroscience, 3 (1): 217-236, 2019.
+[3] J.A. Harris et al. The organization of intracortical connections by layer and cell class in the mouse brain.  Biorxiv, 2018.
 
-[4] J.A. Harris et al. The organization of intracortical connections by layer and cell class in the mouse brain.  Biorxiv, 2018.
+[4] J.E. Knox et al. High-resolution data-driven model of the mouse connectome. Network Neuroscience, 3 (1): 217-236, 2019.
 
-[5] R. Bakker, P. Tiesinga, R. Kötter. The Scalable Brain Atlas: Instant Web-Based Access to Public Brain Atlases and Related Content. Neuroinformatics, 13 (3): 353–366, 2015.
+[5] S. Ji, A. Fakhry, H. Deng. Integrative analysis of the connectivity and gene expression atlases in the mouse brain. Neuroimage 84:245–253  (2014). doi:10.1016/j.neuroimage.2013.08.049.
 
-[6] Y. Li et al. Discover mouse gene coexpression landscapes using dictionary learning and sparse coding. Brain Structure and Function, 222 (9): 4253-4270, 2017.
+[6] R. Bakker, P. Tiesinga, R. Kötter. The Scalable Brain Atlas: Instant Web-Based Access to Public Brain Atlases and Related Content. Neuroinformatics, 13 (3): 353–366, 2015.
 
-[7] M.N. Economo, J. Winnubst, E. Bas and T.A. Ferreira et al. Single-neuron axonal reconstruction: The search for a wiring diagram of the brain. Journal of Comparative Neurology: 1-10, 2019.
+[7] Y. Li et al. Discover mouse gene coexpression landscapes using dictionary learning and sparse coding. Brain Structure and Function, 222 (9): 4253-4270, 2017.
+
+[8] M.N. Economo, J. Winnubst, E. Bas and T.A. Ferreira et al. Single-neuron axonal reconstruction: The search for a wiring diagram of the brain. Journal of Comparative Neurology: 1-10, 2019.
 
 
 
-[6] S. Ji, A. Fakhry, H. Deng. Integrative analysis of the connectivity and gene expression atlases in the mouse brain. Neuroimage 84:245–253  (2014). doi:10.1016/j.neuroimage.2013.08.049.
+
