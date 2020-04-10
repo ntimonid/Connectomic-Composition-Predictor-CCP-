@@ -19,8 +19,8 @@ The supervised machine learning algorithms used to train our models are: Penaliz
 
 The CCP tool corresponds to two main classes and a series of independent functions. The two main classes are:
 
-    MesoconnectomePredictor: provides preprocessing, storage, analysis and predictive routines for the aforementioned data modalities.
-    BrainPlotter: provides multiple forms of  visualization for brain related data at different stages of the analysis [6].
+   a. MesoconnectomePredictor: provides preprocessing, storage, analysis and predictive routines for the aforementioned data modalities.
+   b. BrainPlotter: provides multiple forms of  visualization for brain related data at different stages of the analysis [6].
 
 Descriptions and implementations of the aforementioned modules can be found at: PrimaryLibrary, Allen_API_Library, MorphologyLibrary
 
