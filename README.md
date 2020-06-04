@@ -1,6 +1,7 @@
                                          Connectomic Composition Predictor       
 
-Springer Neuroinformatics Link:  https://link.springer.com/content/pdf/10.1007/s12021-020-09471-x.pdf
+Springer Neuroinformatics Link:  https://link.springer.com/content/pdf/10.1007/s12021-020-09471-x.pdf   
+
 The goal of this tool is to facilitate the integration of high-throughput brain related data sources in order to predict and complete a more spatially accurate mouse brain mesoconnectome. Based on the premise that gene expression plays a pivotal role in synapse formation during brain development and homeostasis, the quantity and quality of connectivity information present in gene expression atlases should be assessed. A potential approach is to train supervised machine learning algorithms with gene expression data on the task of learning and predicting  structural connectivity patterns.
 
 For the aforementioned purpose, two brain atlas related data modalities were utilized: 
